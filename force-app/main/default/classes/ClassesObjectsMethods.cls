@@ -164,11 +164,12 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
         // Square the input numbers using the Math.pow() function
-
+        Double aSquared = Math.pow(a, 2);
+        Double bSquared = Math.pow(b, 2);
         // Calculate the absolute difference using Math.abs() function
-
+       Double absoluteDifference = math.abs(aSquared - bSquared);    
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return absoluteDifference; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -179,9 +180,9 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
-
+    Integer randomIntegerResult = Integer.valueOf((Math.random() * 51)+ 50);
         // Return the random integer
-        return null; // Replace null with the variable you used to store the result
+        return randomIntegerResult; // Replace null with the variable you used to store the result
     }
 
     /**
