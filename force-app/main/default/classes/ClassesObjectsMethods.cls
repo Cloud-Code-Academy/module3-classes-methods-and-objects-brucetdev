@@ -89,15 +89,17 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String removeDuplicateWords(String sentence) {
         // Split the sentence into words
-
+    List<String> words = sentence.split(' ');
         // Create a set to store the unique words
-
+    Set<String> uniqueWords = new Set<String>(words);
         // Add each word to the set
-
+    for (String word : words) {
+        uniqueWords.add(word);
+    }
         // Join the unique words back into a sentence
-
+        String result = String.join(new List<String>(uniqueWords), ' ');
         // Return the sentence with unique words
-        return null; // Replace null with the variable you used to store the result
+        return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -110,16 +112,18 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer countVowels(String str) {
         // Initialize the result Integer
-
-        /*
-        for () {
+        Integer result = 0;
+        
+        for (Integer i = 0; i < str.length(); i++) {
             // get individual characters from the string - hint use substring or split
+            String character = str.substring(i, i +1);
             // check if the character is a vowel
+            if (character.equals('a') || character.equals('e') || character.equals('i') || character.equals('o') || character.equals('u')) {
             // if it is a vowel, increment the result Integer
+            result++;
         }
-        */
-
-        return null; // Replace null with the variable you used to store the result
+    }
+       return result; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -134,16 +138,20 @@ public with sharing class ClassesObjectsMethods {
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
 
         // The variable to store the concatenated string
-
+        String scientistNamesResult = '';
         // Loop through the list of scientists' names
-
+        for (String scientist : scientistNames){
             // If the name doesn't contain the letter 'G', skip this iteration
-
+        if (scientist.toLowerCase().contains('g')){
             // Add the name to the result string, followed by a comma
-
+            scientistNamesResult += scientist + ',';
+        }
+    }
         // Remove the last comma from the result string
-
-        return null; // Replace null with the variable you used to store the result
+        if (scientistNamesResult.length() >0) {
+            scientistNamesResult = scientistNamesResult.removeEnd(',');
+        }
+        return scientistNamesResult; // Replace null with the variable you used to store the result
     }
 
     /**
