@@ -209,13 +209,20 @@ public with sharing class ClassesObjectsMethods {
     public static String getDayOfWeek(DateTime dt) {
         // Define a map of day of the week as a key and day number as the value
         // Monday = 1, Tuesday = 2, etc.
-
+        Map<String, Integer> dayOfWeekMap = new map<String, Integer>{
+        'Monday' => 1,
+        'Tuesday' => 2,
+        'Wednesday' => 3,
+        'Thursday' => 4, 
+        'Friday' => 5,
+        'Saturday' => 6,
+        'Sunday' => 7};
         // Get the day name using .format('EEEE');
-
+        String dayString = dt.format('EEEE');
         // Get the day number from the map using the day name
-
+        Integer dayNumber = dayofWeekMap.get(dayString);
         // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
+        return String.valueOf(dayNumber); // Replace null with the variable you used to store the result
     }
 
 
@@ -229,10 +236,16 @@ public with sharing class ClassesObjectsMethods {
      * @return The a positive number years between the two dates, or null if either date is null.
      */
     public static Integer calculateYearDifference(Date d1, Date d2) {
-
-        // Subtract the difference in years
-
-        return null; // Replace null with the variable you used to store the result
+  
+    if (d1 == null || d2 == null){
+        return null;
+    // Subtract the difference in years
+    } else {
+        Integer d1Year = Datetime.newInstance(d1.year(), 1, 1, 0, 0, 0).yearGmt();
+        Integer d2Year = Datetime.newInstance(d2.year(), 1, 1, 0, 0, 0).yearGmt(); 
+        return Math.abs(d1Year - d2Year);
+    }
+    // return null; // Replace null with the variable you used to store the result
     }
 
     /**
