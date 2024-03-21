@@ -255,21 +255,29 @@ public with sharing class ClassesObjectsMethods {
      * This class can be used in the context of a library management system, bookstore, etc.
      * where you need to manipulate and manage book information.
      */
+
+     //The sky above the port was the color of television, tuned to a dead channel. - Opening line of "Neuromancer" by William Gibson//
+
     public class Book {
         // Declare three public instance variables - title, author, pages
         // title
+        public String title;
         // author
+        public String author;
         // pages
+        public Integer pages;
     
         // Book constructor to initialize the title and author
-        public Book() {
+        public Book(String title1, String author1) {
             // Initialize the title and author
+        title = title1;
+        author = author1;   
         }
     
         // Method that returns the details of the book
         public String getBookDetails() {
-            // return A string containing the details of the book in the format "Title: <title>, Author: <author>"
-            return null; // Replace null with the variable you used to store the result
+            String bookDetailsResult = 'Title: ' + title + ', '+ 'Author: ' + author;
+            return bookDetailsResult;
         }
     }
     
@@ -282,11 +290,14 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String createAndGetBookDetails() {
         // Create a Book object with title "A Brief History of Time" and author "Stephen Hawking"
-
+        Book book = new Book('A Brief History of Time', 'Stephen Hawking');
+            // Initialize the title and author
+         
+        
         // Call the getBookDetails method on the book object to get the details of the book
-
+        return book.getBookDetails();
         // Return the details of the book
-        return null; // Replace null with the variable you used to store the result
+         // Replace null with the variable you used to store the result
     }
 
     /**
@@ -300,18 +311,20 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Book> generateBookList(Book myBook1) {
         // Create a list of books
-
+        List<Book> bookList = new List<Book>();
         // Update the title and author of myBook1
-
-        // Update the pages for myBook1 to 352
-
-        // Create a new Book object with title "A Brief History of Time" and author "Stephen Hawking"
-
-        // Update the pages for A Brief History of Time to 256
-
-        // Add the book to the list
+        myBook1.title = 'Harry Potter and the Chamber of Secrets';
+        myBook1.author = 'J.K. Rowling';
         
-        return null; // Replace null with the variable you used to store the result      
+        // Update the pages for myBook1 to 352
+        myBook1.pages = 352;  
+        // Create a new Book object with title "A Brief History of Time" and author "Stephen Hawking"
+        Book myBook2 = new Book('A Brief History of Time', 'Stephen Hawking');  
+        // Update the pages for A Brief History of Time to 256
+         myBook2.pages = 256;
+        // Add the book to the list
+        bookList.addAll(new List<Book>{myBook1, myBook2});
+        return bookList; // Replace null with the variable you used to store the result      
     }
 
 
